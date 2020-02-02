@@ -6,10 +6,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TMS.Common.Enums;
 using TMS.Entities.Common;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Identity;
 
 namespace TMS.Entities.Entities
 {
-    public class AppUsers:IdentityUser<Guid>
+    public class AppUsers:IdentityUser<Guid>,IEntity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

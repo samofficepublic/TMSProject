@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TMS.Common.Extensions;
+using TMS.Entities.Common;
 using TMS.Entities.Entities;
 using TMS.Entities.EntityConfigurations;
 
@@ -22,9 +23,10 @@ namespace TMS.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            var entitiesAssembly = typeof(IEntity).Assembly;
 
-            modelBuilder.Entity<AppUsers>().ToTable("AppUser");
-            modelBuilder.ApplyConfiguration(new AppUserConfig());
+            modelBuilder.RegisterAllEntities<IEntity>(entitiesAssembly);
+            modelBuilder.RegisterEntityTypeConfiguration(entitiesAssembly);
         }
 
         

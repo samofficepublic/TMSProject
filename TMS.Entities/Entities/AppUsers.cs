@@ -20,6 +20,8 @@ namespace TMS.Entities.Entities
         public DateTime? BirthDay { get; set; }
         public GenderType? Gender { get; set; }
         public string PersonalyCode { get; set; }
+        public DateTimeOffset? LastLoginDate { get; set; }
+        public bool IsActive { get; set; }
     }
 
    

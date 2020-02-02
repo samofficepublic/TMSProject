@@ -40,7 +40,9 @@ namespace TMS.Api
 
             services.Configure<SiteSetting>(Configuration.GetSection(nameof(SiteSetting)));
 
-            
+            services.AddCustomIdentity(_siteSetting.IdentitySetting);
+
+            services.AddCustomAuthentication(_siteSetting.JwtSetting);
 
 
             return services.BuildAutofacServiceProvider();

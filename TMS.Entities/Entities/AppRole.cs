@@ -9,5 +9,6 @@ namespace TMS.Entities.Entities
 {
     public class AppRole:IdentityRole<Guid>,IEntity
     {
+        public string Description { get; set; }
     }
 }

@@ -8,8 +8,9 @@ namespace TMS.Framework.Api
 {
     [ApiController]
     [ApiResultFilter]
-    [Route("api/v{version:apiVersion}/[controller]")]
-   public class CustomBaseController:ControllerBase
+    //[Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/[controller]")]
+    public class CustomBaseController:ControllerBase
    {
        public bool isAuthenticated => HttpContext.User.Identity.IsAuthenticated;
    }

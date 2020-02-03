@@ -1,16 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using System;
 using TMS.Common.Enums;
-using TMS.Entities.Common;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNetCore.Identity;
 
-namespace TMS.Entities.Entities
+namespace TMS.Api.Dtos
 {
-    public class AppUsers : IdentityUser<Guid>, IEntity
+    public class AppUserDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -24,6 +17,4 @@ namespace TMS.Entities.Entities
         public DateTimeOffset? LastLoginDate { get; set; }
         public bool IsActive { get; set; }
     }
-
-
 }

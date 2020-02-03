@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TMS.Common.Settings;
+using TMS.Data.Contract;
+using TMS.Data.Services;
 using TMS.Framework.Configuration;
 using TMS.Framework.ServiceCollectionExtension;
 
@@ -23,7 +25,7 @@ namespace TMS.Api
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
 
@@ -37,8 +39,9 @@ namespace TMS.Api
 
             services.AddCustomAuthentication(_siteSetting.JwtSetting);
 
+            services.AddScoped<IJwtService, JwtService>();
 
-            return services.BuildAutofacServiceProvider();
+            //return services.BuildAutofacServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

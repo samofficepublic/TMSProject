@@ -9,7 +9,7 @@ using TMS.Framework.Api;
 
 namespace TMS.Framework.Filters
 {
-public    class ApiResultFilterAttribute:ActionFilterAttribute
+    public class ApiResultFilterAttribute : ActionFilterAttribute
     {
         public override void OnResultExecuting(ResultExecutingContext context)
         {
